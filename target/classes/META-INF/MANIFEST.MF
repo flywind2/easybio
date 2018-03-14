@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Implementation-Title: easybio
+Implementation-Version: 2.10.8
+Main-Class: org.flywind2.easybio.EasyBio
+Implementation-Vendor: flywind2.su@gmail.com

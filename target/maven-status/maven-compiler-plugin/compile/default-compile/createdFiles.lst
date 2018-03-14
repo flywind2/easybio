@@ -1,9 +1,9 @@
 org\flywind2\easybio\crawler\ckb\HtmlUnitDemo.class
-org\flywind2\easybio\Demo.class
-org\flywind2\easybio\crawler\ckb\CKBGene.class
 org\flywind2\easybio\crawler\GeneticTestingRegistryFetch.class
 org\flywind2\easybio\programgroup\CKB.class
 org\flywind2\easybio\crawler\ckb\CKBDetail.class
+org\flywind2\easybio\crawler\ckb\CKBGene.class
 org\flywind2\easybio\crawler\ckb\GeneLevelEvidence.class
 org\flywind2\easybio\crawler\ckb\GeneVariant.class
 org\flywind2\easybio\crawler\ckb\MolecularProfile.class
+org\flywind2\easybio\Demo.class
