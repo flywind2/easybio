@@ -13,8 +13,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 /**
- * @author sufeng
- *
+ * 
+ * @author flywind2.su@gmail.com
+ * @date 2018年3月14日
+ * @version 1.0
  */
 public class McgPathway {
 

@@ -25,8 +25,10 @@ import htsjdk.samtools.util.StringUtil;
 import picard.cmdline.CommandLineProgram;
 
 /**
- * @author sufeng
- *
+ * 
+ * @author flywind2.su@gmail.com
+ * @date 2018年3月14日
+ * @version 1.0
  */
 @CommandLineProgramProperties(summary = "Collect UMI raw sequencing reads.", oneLineSummary = "Collect UMI raw sequencing reads.", programGroup = EasyQC.class)
 public class UMIStats extends CommandLineProgram {

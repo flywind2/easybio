@@ -11,6 +11,12 @@ import org.apache.http.util.EntityUtils;
 
 import com.google.common.io.Files;
 
+/**
+ * 
+ * @author flywind2.su@gmail.com
+ * @date 2018年3月14日
+ * @version 1.0
+ */
 public class A {
 	public static void main(String ...strings) {
 		CloseableHttpClient httpCilent = HttpClients.createDefault();//Creates CloseableHttpClient instance with default configuration.

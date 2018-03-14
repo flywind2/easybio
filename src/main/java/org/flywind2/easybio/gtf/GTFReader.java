@@ -9,8 +9,10 @@ import htsjdk.samtools.util.IOUtil;
 import htsjdk.samtools.util.IterableOnceIterator;
 
 /**
- * @author sufeng
- *
+ * 
+ * @author flywind2.su@gmail.com
+ * @date 2018年3月14日
+ * @version 1.0
  */
 public class GTFReader {
 
@@ -19,7 +21,7 @@ public class GTFReader {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		File file = new File("G:\\superbio\\database\\gencode\\gencode.v27lift37.annotation.gtf.gz");
+		File file = new File("gencode.v27lift37.annotation.gtf.gz");
 		IterableOnceIterator<String> lines = IOUtil.readLines(file);
 		while(lines.hasNext()) {
 			//String line 

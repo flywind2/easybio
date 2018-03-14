@@ -20,8 +20,10 @@ import htsjdk.samtools.util.IterableOnceIterator;
 import picard.cmdline.CommandLineProgram;
 
 /**
- * @author sufeng
- *
+ * 
+ * @author flywind2.su@gmail.com
+ * @date 2018年3月14日
+ * @version 1.0
  */
 @CommandLineProgramProperties(summary = "Converter blast -m 8 format to bed", oneLineSummary = "Converter blast -m 8 format to bed", programGroup = Converter.class)
 public class BlastToBed extends CommandLineProgram {
@@ -32,15 +34,7 @@ public class BlastToBed extends CommandLineProgram {
 	@Argument(shortName = "O", doc = "output bed file")
 	public File OUTPUT;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		args = new String[] {"I=G:\\superbio\\产品设计\\IDT\\210基因\\2017-11-21\\fusion\\fusion.blast.txt",
-				"O=G:\\superbio\\产品设计\\IDT\\210基因\\2017-11-21\\fusion\\fusion.blast.bed"};
-		new BlastToBed().instanceMain(args);
-	}
+	
 
 	@Override
 	protected int doWork() {

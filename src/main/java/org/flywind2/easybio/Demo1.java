@@ -16,8 +16,10 @@ import htsjdk.samtools.reference.ReferenceSequence;
 import htsjdk.samtools.util.StringUtil;
 
 /**
- * @author sufeng
- *
+ * 
+ * @author flywind2.su@gmail.com
+ * @date 2018年3月14日
+ * @version 1.0
  */
 public class Demo1 {
 
@@ -38,7 +40,7 @@ public class Demo1 {
 		
 		
 		FastaSequenceFile fasta = new  FastaSequenceFile(
-				new File("G:\\superbio\\项目\\210基因\\20180108\\MET.fa"), false);
+				new File("MET.fa"), false);
 		ReferenceSequence rfs;
 		FastqWriter output = new FastqWriterFactory().newWriter(new File("G:\\superbio\\项目\\210基因\\20180108\\MET.fq"));
 	    while((rfs = fasta.nextSequence())!=null) {

@@ -23,8 +23,10 @@ import htsjdk.samtools.util.Log;
 import picard.cmdline.CommandLineProgram;
 
 /**
- * @author sufeng
- *
+ * 
+ * @author flywind2.su@gmail.com
+ * @date 2018年3月14日
+ * @version 1.0
  */
 @CommandLineProgramProperties(summary = "JAX-Clinical Knowledgebase (CKB) Gene", oneLineSummary = "JAX-Clinical Knowledgebase (CKB) Gene", programGroup = CKB.class)
 public class CKBGene extends CommandLineProgram {
@@ -44,7 +46,7 @@ public class CKBGene extends CommandLineProgram {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		args = new String[] {"P=G:\\superbio\\database\\ckb\\ckb"};
+		args = new String[] {"P=ckb"};
 		CKBGene ckbGene = new CKBGene();
 		ckbGene.instanceMain(args);
 	}

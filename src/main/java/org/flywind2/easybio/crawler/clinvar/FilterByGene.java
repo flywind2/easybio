@@ -15,8 +15,10 @@ import htsjdk.samtools.util.IOUtil;
 import htsjdk.samtools.util.IterableOnceIterator;
 
 /**
- * @author sufeng
- *
+ * 
+ * @author flywind2.su@gmail.com
+ * @date 2018年3月14日
+ * @version 1.0
  */
 public class FilterByGene {
 
@@ -26,10 +28,10 @@ public class FilterByGene {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			List<String> genes = Files.readAllLines(new File("G:\\superbio\\database\\superbio\\73-gene.txt").toPath());
-			IterableOnceIterator<String> iterator = IOUtil.readLines(new File("G:\\superbio\\database\\clinvar\\tab\\variant_summary.format.txt"));
+			List<String> genes = Files.readAllLines(new File("gene.txt").toPath());
+			IterableOnceIterator<String> iterator = IOUtil.readLines(new File("variant_summary.format.txt"));
 			
-			BufferedWriter output = IOUtil.openFileForBufferedUtf8Writing(new File("G:\\superbio\\database\\superbio\\73-gene-clinvar.txt"));
+			BufferedWriter output = IOUtil.openFileForBufferedUtf8Writing(new File("gene-clinvar.txt"));
 			
 			iterator.forEach(new Consumer<String>() {
 

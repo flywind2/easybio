@@ -16,8 +16,10 @@ import htsjdk.samtools.util.CloserUtil;
 import htsjdk.samtools.util.IOUtil;
 
 /**
- * @author sufeng
- *
+ * 
+ * @author flywind2.su@gmail.com
+ * @date 2018年3月14日
+ * @version 1.0
  */
 public class CKBFormater {
 
@@ -27,10 +29,10 @@ public class CKBFormater {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		List<String> lines = Files.readAllLines(new File("G:/superbio/database/civic/civic-process.txt").toPath(),
+		List<String> lines = Files.readAllLines(new File("civic-process.txt").toPath(),
 				Charset.forName("utf-8"));
 		BufferedWriter output = IOUtil
-				.openFileForBufferedUtf8Writing(new File("G:/superbio/database/civic/civic-process.format.txt"));
+				.openFileForBufferedUtf8Writing(new File("civic-process.format.txt"));
 		for (String line : lines) {
 			final String[] array = line.split("\t", -1);
 

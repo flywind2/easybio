@@ -19,8 +19,10 @@ import htsjdk.samtools.util.IOUtil;
 import htsjdk.samtools.util.Log;
 
 /**
- * @author sufeng
- *
+ * 
+ * @author flywind2.su@gmail.com
+ * @date 2018年3月14日
+ * @version 1.0
  */
 public class GeneCardsAPI {
 	private static final Log log = Log.getInstance(GeneCardsAPI.class);
@@ -32,9 +34,9 @@ public class GeneCardsAPI {
 		// TODO Auto-generated method stub
 		try {
 
-			List<String> lines = Files.readAllLines(new File("G:\\superbio\\database\\gene-list.txt").toPath());
+			List<String> lines = Files.readAllLines(new File("gene-list.txt").toPath());
 			BufferedWriter output = IOUtil
-					.openFileForBufferedUtf8Writing(new File("G:\\superbio\\database\\gene-list-format.txt"));
+					.openFileForBufferedUtf8Writing(new File("gene-list-format.txt"));
 
 			// 处理每一行（基因）
 			int i = 0;
