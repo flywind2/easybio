@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+	<persistence-unit name="JPA" transaction-type="RESOURCE_LOCAL">
+		<!-- 配置jpa ORM产品 -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<!-- 添加对应的持久化类 -->
+		<class>org.flywind2.easybio.crawler.cbioportal.Study</class>
+		<class>org.flywind2.easybio.crawler.cbioportal.CancerType</class>
+		<properties>
+			<!-- jpa中连接数据库 -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/superbio" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="111111"></property>
+			<property name="javax.persistence.schema-generation.database.action"
+				value="update" />
+			<!-- jpa中配置hibernate基本属性 -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+
+	</persistence-unit>
+</persistence>  
