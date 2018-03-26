@@ -3,18 +3,19 @@
  */
 package org.flywind2.easybio;
 
+import htsjdk.samtools.fastq.FastqReader;
+import htsjdk.samtools.fastq.FastqRecord;
+import htsjdk.samtools.util.SequenceUtil;
+import htsjdk.samtools.util.StringUtil;
+
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.broadinstitute.hellbender.utils.bwa.BwaMemAligner;
-import org.broadinstitute.hellbender.utils.bwa.BwaMemIndex;
-
-import htsjdk.samtools.fastq.FastqReader;
-import htsjdk.samtools.fastq.FastqRecord;
-import htsjdk.samtools.util.StringUtil;
+import org.apache.commons.text.similarity.EditDistance;
+import org.apache.commons.text.similarity.EditDistanceFrom;
+import org.apache.commons.text.similarity.HammingDistance;
 
 /**
  * 
@@ -30,44 +31,58 @@ public class Demo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String f1 = "G:\\superbio\\validate\\1-MID_S4_R1_001_tag.fastq";
-		//String f2 = "G:\\superbio\\validate\\1-MID_S4_R3_001_tag.fastq";
+		String f1 = "data/R1.fq";
+		String f2 = "data/R2.fq";
 		FastqReader left = new FastqReader(new File(f1));
 		
-		//FastqReader right = new FastqReader(new File(f2));
+		FastqReader right = new FastqReader(new File(f2));
 		Map<String,List<FastqRecord>> map = new HashMap<>();
-		
+		int size = 10;
 		while(left.hasNext()) {
 			final FastqRecord r1 = left.next();
-			final String[] readNameArray = new String[2];
-			//System.out.println(r1.getReadName());
-			StringUtil.split(r1.getReadName(), readNameArray, '|');
+			final FastqRecord r2 = right.next();
 			
+			String seq1 = r1.getReadString();
 			
-			if(map.containsKey(readNameArray[1])) {
-				
-				map.get(readNameArray[1]).add(r1);
-				if(map.get(readNameArray[1]).size()>3) {
-					make(map.get(readNameArray[1]));
-				}
-				
-				
-			}else {
-				List<FastqRecord> list = new ArrayList<FastqRecord>();
-				list.add(r1);
-				map.put(readNameArray[1],list);
+			String seq2 = SequenceUtil.reverseComplement(r2.getReadString());
+			
+			for(int i=0;i<seq2.length()-size;i++){
+			    String t1;
+			    if(i+size<seq2.length()){
+			        t1 = seq2.substring(i,size);
+			    }else{
+			        t1 = seq2.substring(i,seq2.length());
+			    }
+			    compare(t1,seq1);
 			}
 			
 		}
 		
 		left.close();
-
+		right.close();
 		
-     //BwaMemAligner aligner = new BwaMemAligner(new BwaMemIndex(""));
+		
+		String ssString = "TGTCCCACGTCTCTTTGCTTTCCAACTTTCTAATTGCCAACACTTATCTTCTGTGCTTTGGTGGACTCCAGACAGCAAGTGTCCCTGCTAGCCCACAGGCTCTCGGGGGGAACTAGCAGGGCACTGCAGAACCATGTCGCAGCTGAGAGTG";
+		System.out.println(SequenceUtil.reverseComplement(ssString));
+		//BwaMemAligner aligner = new BwaMemAligner(new BwaMemIndex(""));
 
 	}
 
-	private static void make(List<FastqRecord> list) {
+	/**
+     * @param t1
+     * @param seq1
+     */
+    private static void compare(String q, String target) {
+        // TODO Auto-generated method stub
+        EditDistance<Integer> editDistance = new HammingDistance();
+        for(int i=0;i<target.length()-q.length();i++){
+            final String tmp = target.substring(0, q.length());
+            int distance = editDistance.apply(q, tmp);
+            System.out.println(distance);
+        }
+    }
+
+    private static void make(List<FastqRecord> list) {
 		// TODO Auto-generated method stub
 		for(int i=0;i<list.size();i++) {
 			for(int j=i+1;j<list.size();j++) {

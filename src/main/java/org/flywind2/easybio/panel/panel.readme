@@ -1,0 +1,6 @@
+1、根据输入的基因或是染色体坐标信息，按探针设计大小，过滤掉高危区域并生成探针
+2、将探针坐标信息利用bedtools getfasta得到每条探针的fasta序列
+3、将第2步得到的fasta序列进行相互比对，筛选出相互影响的探针
+    #makeblastdb -dbtype nucl -in <in.fasta>  -out <in.fasta>
+    #blastall  -p blastn -d <db> -i <in.fasta>  -o <output>  -m 8
+4、将第2步得到的fasta序列，进行全基因组范围的blast比对，得到每条探针特异分布情况，筛选出候选的非特异性探针
